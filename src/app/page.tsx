@@ -16,9 +16,9 @@ interface Episode {
 }
 
 async function getEpisodes(): Promise<Episode[]> {
-  const prodRes = await fetch('https://vancrown.github.io/podcast/data/db.json')
+  const result = await fetch('https://vancrown.github.io/rss/data/db.json')
 
-  const result = await fetch('http://localhost:4000/episodes')
+  // const result = await fetch('http://localhost:4000/episodes')
   return result.json()
 }
 
