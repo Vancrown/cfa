@@ -2,6 +2,8 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+
+
 interface Episode {
   title: string,
   episodeNo: number,
@@ -16,12 +18,21 @@ interface Episode {
 }
 
 async function getEpisodes(): Promise<Episode[]> {
-  const result = await fetch('http://localhost:4000/episodes')
-  return result.json()
+  const result = await fetch('https://vancrown.github.io/rss/data/db.json')
+
+  // const result = await fetch('http://localhost:4000/episodes')
+  const val = result.json()
+  return val
 }
+
 
 export default async function Home() {
   const episodes = await getEpisodes()
+  // console.log(episodes.episodes)
+
+  // fetch("https://vancrown.github.io/rss/data/db.json")
+  //   .then((x) => x.json())
+  //   .then((x) => console.log(x))
 
   return (
     <main>
