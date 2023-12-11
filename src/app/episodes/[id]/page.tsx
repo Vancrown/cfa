@@ -8,6 +8,17 @@ async function getEpisode(id: string) {
 
 }
 
+export async function generateStaticParams() {
+    const result = await fetch('https://my-json-server.typicode.com/Vancrown/rss/episodes/')
+    const episodes = await result.json()
+
+
+    return episodes.map((x: EpisodeInterface) => (
+        {
+            id: x.id
+        }))
+}
+
 export default async function EpisodeDetails({ params }: { params: { id: string } }) {
     const id = params.id
     const episode: EpisodeInterface = await getEpisode(id)

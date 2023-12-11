@@ -7,6 +7,6 @@ export interface EpisodeInterface {
     author: string,
     pubDate: number,
     duration: number,
-    id: number
+    id: string
 
 }
